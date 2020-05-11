@@ -1,0 +1,25 @@
+<h1 style="text-align:center">
+    Angular 9 Login Example
+</h1>
+<h2 class="login-header">Log in</h2>
+<div class="login">
+    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+
+        <p [ngClass]="{'has-error': isSubmitted && formControls.email.errors }">
+            <input type="email" formControlName="email">
+        </p>
+        <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+            <div *ngIf="formControls.email.errors.required">Email is Required</div>
+        </div>
+
+        <p [ngClass]="{'has-error': isSubmitted && formControls.password.errors }">
+            <input type="password" formControlName="password">
+        </p>
+        <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+            <div *ngIf="formControls.password.errors.required">Password is Required</div>
+        </div>
+
+        <input type="submit" value="Log In">
+
+    </form>
+</div>
